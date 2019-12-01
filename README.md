@@ -1,2 +1,2 @@
 # Period-Dissolution-Index
-Source for interval indexing approach. Dissolving interval to set of "base intervals" to use it for index. 
+Time periods and intevals indexing that enables logarithmic point-looput search complexity.
