@@ -1,18 +1,18 @@
  First, valeus of the domain are to be converted into binary strings - depends upon the particular domain of application:
 
-	For instance, for dates between 1970 and 2100 can be converted into number of days since 1970, January 1st, and these numbers
+For instance, for dates between 1970 and 2100 can be converted into number of days since 1970, January 1st, and these numbers
 can converted into binaries. This domain cardinality is 47846, which means strings of legth 16 are sufficient for the binaries.
 
-	In Oracle SQL:
+In Oracle SQL:
 
-	SELECT LISTAGG(SIGN(BITAND(value-to_date('1970/01/01','YYYY/MM/DD'), POWER(2,LEVEL-1))),'') 
-	WITHIN GROUP(ORDER BY LEVEL DESC) 
-	FROM dual
-	CONNECT BY LEVEL<=16;
+SELECT LISTAGG(SIGN(BITAND(value-to_date('1970/01/01','YYYY/MM/DD'), POWER(2,LEVEL-1))),'') 
+WITHIN GROUP(ORDER BY LEVEL DESC) 
+FROM dual
+CONNECT BY LEVEL<=16;
 
-	In PostgreSQL:
+In PostgreSQL:
 
-	(value::date-'1970-01-01'::date)::BIT(16)::CHAR(16);
+(value::date-'1970-01-01'::date)::BIT(16)::CHAR(16);
 
 
 to be continued..
