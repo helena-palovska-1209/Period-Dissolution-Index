@@ -1,5 +1,5 @@
 # Period-Dissolution-Index
-Time periods or intevals indexing that enables logarithmic point-lookup search complexity.
+Time periods or intevals index that enables logarithmic point-lookup search.
 
 Periods/intevals of ordered domain are disslovel into binomial breakdown parts. These are used for standard B+ tree index.
 
