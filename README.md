@@ -1,7 +1,7 @@
 # Period-Dissolution-Index
 Solution for time periods and intevals in ordered domain indexing that enables logarithmic point-lookup search effieciency.
 
-Periods/intevals of ordered domain are dissloved into binomial breakdown parts. These are used for standard B+ tree index.
+Periods/intevals are dissloved into binomial breakdown parts. These are used for standard B+ tree index.
 
 In this version, domain values are supposed to be converted into numbers, which will be further converted into binary code. Instead, conversion into binary preserving domain order can be used.
 
