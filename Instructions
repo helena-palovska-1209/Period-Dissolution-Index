@@ -1,7 +1,19 @@
- First, valeus of the domain are to be converted into binary strings - depends upon the particular domain of application:
+ First, values of the domain must be converted into binary strings - this depends upon the particular domain of application:
 
-For instance, for dates between 1970 and 2100 can be converted into number of days since 1970, January 1st, and these numbers
-can converted into binaries. This domain cardinality is 47846, which means strings of legth 16 are sufficient for the binaries.
+For instance, dates between 1970 and 2100 can be converted into number of days since 1970, January 1st, and this number
+can converted into binary string. This particular domain cardinality is 47846, which means strings of legth 16 are sufficient for the binaries.
+
+A table for binomial breakdown of the periods to be indexed must be created (cf. index_table.sql code).
+Length of strings in base_interval column should be set to correspond the domain cardinality binomial logarithm upper bound.
+In case of example above this length would be 16.
+
+"Index records" for an input period will be produced by procedure/functoin interval_index whose input parameters are:
+ID = input period identifier, bin_low resp. bin_high are binary string conversions of period start resp. end point.
+Length of domain binary string conversion should be edited in the sql code:
+in pg_fct_interval_index.sql substitule 34, in ora_proc_interval_index.sql substitute 67
+for the domain cardinality binomial logarithm upper bound - in the example above to 16.
+
+Code to convert date value into binary string:
 
 In Oracle SQL:
 
@@ -14,7 +26,15 @@ In PostgreSQL:
 
 (value::date-'1970-01-01'::date)::BIT(16)::CHAR(16);
 
+To use index_table for indexing the original periods, create B+tree index upon column base_interval
+(cf. create_index_INDEX_TABLE.sql)
 
-to be continued..
+For point-lookup use function serch_bin (cf. fct_search_bin.sql).
 
-
+--------
+For evaluation purposes are sample data prepared. Table table_intervals is prepared for sample input intervals,
+gen_rand_inter.sql can serve for filling it with data.
+"Indexing" all input intervals in bulk can be done with index_all.sql.
+Random test values for point-lookup can be prepared with gen_rand_test_val.sql.
+For bulk point-lookup speed test can be bulk_search_speed_test.sql used.
+For standard point-loopup in original data comparison can be compar_speed_test.sql used.
