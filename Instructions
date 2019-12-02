@@ -12,7 +12,7 @@ In case of example above this length would be 16.
 ID = input period identifier, bin_low resp. bin_high are binary string conversions of period start resp. end point.
 Length of domain binary string conversion should be edited in the sql code:
 in pg_fct_interval_index.sql substitule 34, in ora_proc_interval_index.sql substitute 67
-for the domain cardinality binomial logarithm upper bound - in the example above to 16.
+for the domain cardinality binomial logarithm upper bound - in the example above for 16.
 
 Code to convert date value into binary string:
 
