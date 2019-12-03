@@ -30,7 +30,8 @@ In PostgreSQL:
 To use index_table for indexing the original periods, create B+tree index upon column base_interval
 (cf. create_index_INDEX_TABLE.sql)
 
-For point-lookup use function serch_bin (cf. fct_search_bin.sql).
+For point-lookup use function serch_bin (cf. fct_search_bin.sql) (Postges substitute 34, in Oracle substitute 67 for
+the domain cardinality binomial logarithm upper bound - in the example above for 16).
 
 --------
 For evaluation purposes are sample data prepared. Table table_intervals is prepared for sample input intervals,
