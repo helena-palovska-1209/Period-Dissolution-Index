@@ -8,11 +8,11 @@ A table for binomial breakdown of the periods to be indexed must be created (cf.
 Length of strings in base_interval column should be set to correspond the domain cardinality binomial logarithm upper bound.
 In case of example above this length would be 16.
 
-"Index records" for an input period will be produced by procedure/functoin interval_index whose input parameters are:
+"Index records" for an input period will be produced by procedure/function interval_index whose input parameters are:
 ID = input period identifier, bin_low resp. bin_high are binary string conversions of period start resp. end point.
 Length of domain binary string conversion should be edited in the sql code:
 in pg_fct_interval_index.sql substitule 34, in ora_proc_interval_index.sql substitute 67
-for the domain cardinality binomial logarithm upper bound - in the example above for 16.
+for the domain cardinality binomial logarithm upper bound - in the example above it is 16.
 
 Code to convert date value into binary string:
 
@@ -30,13 +30,13 @@ In PostgreSQL:
 To use index_table for indexing the original periods, create B+tree index upon column base_interval
 (cf. create_index_INDEX_TABLE.sql)
 
-For point-lookup use function serch_bin (cf. fct_search_bin.sql) (Postges substitute 34, in Oracle substitute 67 for
-the domain cardinality binomial logarithm upper bound - in the example above for 16).
+For point-lookup use function serch_bin (cf. fct_search_bin.sql) (in Postges substitute 34, in Oracle substitute 67 for
+the domain cardinality binomial logarithm upper bound - in the example above it is for 16).
 
 --------
-For evaluation purposes are sample data prepared. Table table_intervals is prepared for sample input intervals,
+For evaluation purposes sample data are prepared. Table table_intervals is prepared for sample input intervals,
 gen_rand_inter.sql can serve for filling it with data.
-"Indexing" all input intervals in bulk can be done with index_all.sql.
+"Indexing" all input intervals in bulk can be by executing index_all.sql.
 Random test values for point-lookup can be prepared with gen_rand_test_val.sql.
-For bulk point-lookup speed test can be bulk_search_speed_test.sql used.
+For bulk point-lookup speed test can bulk_search_speed_test.sql be used.
 For standard point-loopup in original data comparison can be compar_speed_test.sql used.
