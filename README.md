@@ -5,6 +5,6 @@ Periods/intevals are dissloved into binomial breakdown parts; these are used for
 
 In this version, domain values are supposed to be converted into numbers, which are further converted into binary code. Instead, conversion into binary preserving domain order can be applied.
 
-All snippets of binary in between start and end point minimal in length are associated with the perod/interval.These serve for the period/interval index.
+All snippets of binary in between start and end point minimal in length are associated with the period/interval.These serve for the period/interval index.
 
-Point-lookup query algorithm is proposed of logarithmic efficiency.
+Point-lookup query algorithm of logarithmic efficiency is proposed.
